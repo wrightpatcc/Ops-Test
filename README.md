@@ -77,7 +77,7 @@ pwm = GPIO.PWM(LEDPin, 50)
 
 #vehicle = connect("/dev/ttyUSB0", wait_ready=True, 57600) #Connected via RPi
 
-vehicle = connect('com3', wait_ready=True, baud =57600) 
+vehicle = connect('com9', wait_ready=True, baud =57600) 
 time.sleep(2)
 print "Autopilot Firmware version: %s" % vehicle.version
 
@@ -317,13 +317,14 @@ def killingjoke():
 		print "Pilot Takeover"
 		time.sleep(5)
 		while True:
-			if not vehicle.mode = VehicleMode("GUIDED"):
+			if not vehicle.mode == VehicleMode("GUIDED"):
 				start = time.time()
-				if vehicle.mode = VehicleMode("GUIDED"):
+				print "other mode"
+				if vehicle.mode == VehicleMode("GUIDED"):
 					end = time.time()
 					print "Pilot controlled A/C for %s" % (end-start)
 					break
-				break
+				
 				
 				
 		print "Do you want to land? Press(Y or N)"
