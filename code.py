@@ -73,12 +73,12 @@ vehicle = connect(connection_string, wait_ready=True)
 ##Connect to XBee
 #ser = serial.Serial('com7', 9600, timeout = 0.5)
 #ser = serial.Serial('/dev/ttyUSB1', 9600, timeout = 0.5)
-#print "Connecting..."
+#vehicle = connect("/dev/ttyUSB0", wait_ready=True, 57600) #Connected via RPi
+#ser.write("Connecting...\n")
 
 #############################################
 ##########Connect through Cord###############
 
-#vehicle = connect("/dev/ttyUSB0", wait_ready=True, 57600) #Connected via RPi
 
 #vehicle = connect('com5', wait_ready=True, baud =57600) 
 #time.sleep(2)
@@ -99,9 +99,9 @@ def arm_and_takeoff(aTargetAltitude):
 			
 			print "Basic pre-arm checks"
 		####Don't try to arm until autopilot is ready
-			while not vehicle.is_armable:
-				print " Waiting for vehicle to initialise..."
-				time.sleep(1)
+			#while not vehicle.is_armable:
+				#print " Waiting for vehicle to initialise..."
+				#time.sleep(1)
 
 		#######################Remove above "While" condition for real testing		
 				
